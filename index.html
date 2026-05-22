@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Message Randomizer</title>
     <style>
+        /* Dark Mode with Subtle Purple Tint */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f9;
+            /* Added Clarity City as the primary font */
+            font-family: 'Clarity City', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #181522; /* Dark background with subtle purple */
+            color: #e6e1f0; /* Light text with a faint purple/cool tint */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -15,60 +18,96 @@
             margin: 0;
         }
         .container {
-            background-color: white;
+            background-color: #221d30; /* Darker container background, subtle purple */
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            max-width: 400px;
-            width: 100%;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+            width: 90%;
+            max-width: 650px; /* Slightly wider to accommodate larger text */
+            height: 500px; /* Fixed height so the window NEVER moves */
+            display: flex;
+            flex-direction: column;
             text-align: center;
         }
+        h2 {
+            margin-top: 0;
+            color: #f3effc;
+            letter-spacing: 1px;
+        }
         #message-display {
-            min-height: 80px;
-            padding: 15px;
+            flex-grow: 1; /* Automatically takes up all available vertical space */
+            padding: 20px;
             margin-bottom: 20px;
-            background-color: #e9ecef;
+            background-color: #2b253b; /* Dark inset box, subtle purple */
             border-radius: 6px;
-            font-size: 1.1em;
-            color: #333;
+            font-size: 1.35em; /* Bigger font as requested */
+            line-height: 1.5;
+            color: #e6e1f0;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: center; /* Vertically centers the text */
+            justify-content: center; /* Horizontally centers the text */
+            text-align: center; /* Centers the text alignment */
+            overflow-y: auto; /* Adds a scrollbar ONLY if the text is too long */
             word-wrap: break-word;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+        }
+        /* Custom scrollbar matching the purple tint */
+        #message-display::-webkit-scrollbar {
+            width: 8px;
+        }
+        #message-display::-webkit-scrollbar-track {
+            background: #221d30; 
+            border-radius: 4px;
+        }
+        #message-display::-webkit-scrollbar-thumb {
+            background: #524770; 
+            border-radius: 4px;
+        }
+        #message-display::-webkit-scrollbar-thumb:hover {
+            background: #6a5c92; 
         }
         .button-group {
             display: flex;
-            gap: 10px;
+            gap: 15px;
             justify-content: center;
+            margin-bottom: 10px;
         }
         button {
-            padding: 10px 20px;
+            padding: 12px 25px;
             border: none;
             border-radius: 5px;
-            font-size: 1em;
+            font-size: 1.05em;
+            font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.2s;
+            transition: all 0.2s ease;
             color: white;
+            font-family: inherit;
         }
         #generate-btn {
-            background-color: #007bff;
+            background-color: #6d28d9; /* Purple accent for the generate button */
         }
         #generate-btn:hover {
-            background-color: #0056b3;
+            background-color: #5b21b6;
+            transform: translateY(-2px);
         }
         #copy-btn {
-            background-color: #28a745;
+            background-color: #10b981; /* Vivid green */
         }
         #copy-btn:hover {
-            background-color: #218838;
+            background-color: #059669;
+            transform: translateY(-2px);
         }
-        /* Small tooltip animation for copy feedback */
+        /* Fixed height for feedback so it doesn't push elements around */
+        .feedback-container {
+            height: 20px; 
+        }
         .copied-feedback {
-            color: #28a745;
+            color: #10b981;
             font-size: 0.9em;
-            margin-top: 10px;
+            font-weight: 500;
             opacity: 0;
             transition: opacity 0.3s;
+            margin: 0;
         }
     </style>
 </head>
@@ -82,7 +121,9 @@
             <button id="generate-btn">Generate</button>
             <button id="copy-btn">Copy</button>
         </div>
-        <div id="feedback" class="copied-feedback">Copied to clipboard!</div>
+        <div class="feedback-container">
+            <p id="feedback" class="copied-feedback">Copied to clipboard!</p>
+        </div>
     </div>
 
     <script>
@@ -108,43 +149,43 @@
 
 	        "You wake up to the warm, wet feeling of my mouth wrapped around your cock 😌. I’m under the sheets sucking you slowly, getting you rock hard while playing with my own pussy. When you pull the covers back I look up with hungry eyes and whisper, “Good morning, baby… now flip me over and fuck me like you own this slut 💦.” Pound me deep and rough from behind until I’m a trembling mess covered in your cum 🔥",
 
-	        "I just finished my shower and I'm still dripping wet. You walk in and see me standing there naked, water running down my body. You can't resist and press me against the glass, your hands grabbing my ass. You kiss my neck while sliding your fingers between my legs, rubbing my swollen clit. I arch my back and push against you, feeling your hard cock against me. You turn me around and bend me over, teasing my entrance with your tip. I need you inside me so bad. What are you going to do to me in this shower, daddy? 🔥💦",
+	        "Hey daddy, I just finished my shower and I'm still dripping wet. You walk in and see me standing there naked, water running down my body. You can't resist and press me against the glass, your hands grabbing my ass. You kiss my neck while sliding your fingers between my legs, rubbing my swollen clit. I arch my back and push against you, feeling your hard cock against me. You turn me around and bend me over, teasing my entrance with your tip. I need you inside me so bad. What are you going to do to me in this shower, daddy? 🔥💦",
 
 	        "I've been waiting in bed for you all evening wearing nothing but a tiny thong. When you finally come in, I spread my legs and show you how soaked I am. You climb on top of me and start sucking on my tits while your fingers push inside my tight pussy. I moan loudly as you finger me faster, hitting that spot that makes me shake. Your cock is so hard against my thigh. I want you to use me. Tell me how you'd fuck me right now, daddy. Would you go slow and deep or pound me until I can't walk? 😈",
 
-	        "I was in the kitchen making dinner when you came up behind me. You lifted my skirt and realized I wasn't wearing panties. Your hand immediately went between my legs, rubbing my pussy while you kissed my neck. I bent over the counter for you as you dropped your pants and pushed your thick cock inside me in one stroke. You fucked me hard while I tried not to moan too loud. It felt so good feeling you stretch me. What would you do next, daddy? Would you keep fucking me right there or take me to the bedroom? 💦🔥",
+	        "Heyoo papi  I was in the kitchen making dinner when you came up behind me. You lifted my skirt and realized I wasn't wearing panties. Your hand immediately went between my legs, rubbing my pussy while you kissed my neck. I bent over the counter for you as you dropped your pants and pushed your thick cock inside me in one stroke. You fucked me hard while I tried not to moan too loud. It felt so good feeling you stretch me. What would you do next, daddy? Would you keep fucking me right there or take me to the bedroom? 💦🔥",
 
-	        "I just got back from the gym and I'm all sweaty. You look at me and get instantly hard. You push me against the wall and pull my leggings down, burying your face in my ass. Your tongue licks my pussy from behind while I moan and push back against you. You stand up and slide your cock deep inside me, fucking me rough while pulling my hair. I love when you use me like this after my workout. Tell me daddy, how hard are you going to fuck me? 😈💦",
+	        "Daddddyyyyyyy, I just got back from the gym and I'm all sweaty. You look at me and get instantly hard. You push me against the wall and pull my leggings down, burying your face in my ass. Your tongue licks my pussy from behind while I moan and push back against you. You stand up and slide your cock deep inside me, fucking me rough while pulling my hair. I love when you use me like this after my workout. Tell me daddy, how hard are you going to fuck me? 😈💦",
 
 	        "I bought new red lingerie just for you. When you walk in I'm lying on the bed posing for you. You slowly take it off me, kissing every inch of my body. Your mouth finds my pussy and you eat me like you're starving. I cum on your tongue but you don't stop. You flip me over and slide your cock between my ass cheeks before pushing inside me. I feel so full. What position do you want me in next, daddy? I’ll do anything you say tonight. 🔥😈",
 
 	        "Hey my master, imagine I'm your naughty little secret at the office. I snuck under your desk while you're in a meeting. I quietly unzip your pants and take your cock in my mouth, sucking you slowly while you try to stay professional. You get harder in my throat as I bob my head. After the call ends you pull me up, bend me over your desk and fuck me deep and fast. I have to bite my lip to stay quiet. Would you risk fucking me like that, daddy? 💦",
 
-	        "Daddy, we're on vacation by the pool at night. Everyone else is asleep. I take off my bikini and sit on the edge with my legs open. You kneel in the water and start licking my pussy while the cool night air hits my skin. I moan softly as you suck my clit. Then you stand up and pull me into the water, sliding your cock inside me while holding me against the pool wall. It feels so risky and hot. Tell me how you'd fuck me out here, daddy. 🔥💦",
+	        "Hey daddy, we're on vacation by the pool at night. Everyone else is asleep. I take off my bikini and sit on the edge with my legs open. You kneel in the water and start licking my pussy while the cool night air hits my skin. I moan softly as you suck my clit. Then you stand up and pull me into the water, sliding your cock inside me while holding me against the pool wall. It feels so risky and hot. Tell me how you'd fuck me out here, daddy. 🔥💦",
 
-	        "I gave you a massage but things got naughty fast. My hands moved lower until I was stroking your hard cock. You turned over and pulled me on top of you. I rubbed my wet pussy against your shaft before sliding down on it. You grabbed my hips and bounced me up and down, fucking me deep while I rode you. My tits were bouncing in your face. I love feeling you so deep inside me. What would you do to me next, daddy? Would you flip me over and take control? 😈",
+	        "Hey daddy, I gave you a massage but things got naughty fast. My hands moved lower until I was stroking your hard cock. You turned over and pulled me on top of you. I rubbed my wet pussy against your shaft before sliding down on it. You grabbed my hips and bounced me up and down, fucking me deep while I rode you. My tits were bouncing in your face. I love feeling you so deep inside me. What would you do to me next, daddy? Would you flip me over and take control? 😈",
 
 	        "Hey daddy, I couldn't sleep so I started touching myself next to you in bed. You woke up and saw me with two fingers in my pussy. You got so turned on that you pushed my legs back and buried your tongue deep inside me. I was dripping down your chin. Then you climbed on top and fucked me slow and hard, looking into my eyes. Every thrust felt better than the last. I'm still thinking about it. Tell me daddy, how would you wake me up next time? Would you start with your mouth or your cock? 💦🔥",
 
-	        "I was just lying here in my tiny black thong, scrolling through our old chats, and I couldn’t stop imagining you sneaking into my room while I’m half asleep 🥵 You’d pull the covers off, spread my legs wide, and slide that thick cock right into my dripping pussy without saying a word. I’d wake up moaning, gripping the sheets as you fuck me deeper and deeper, using me like your personal little cum dump. My tits bouncing with every hard thrust, my slutty hole clenching around you. Fuck, I’m so wet right now just thinking about it. Would you fill me up until I’m leaking? Tell me how you’d use me tonight 🥰",
+	        "Hey babe, I was just lying here in my tiny black thong, scrolling through our old chats, and I couldn’t stop imagining you sneaking into my room while I’m half asleep 🥵 You’d pull the covers off, spread my legs wide, and slide that thick cock right into my dripping pussy without saying a word. I’d wake up moaning, gripping the sheets as you fuck me deeper and deeper, using me like your personal little cum dump. My tits bouncing with every hard thrust, my slutty hole clenching around you. Fuck, I’m so wet right now just thinking about it. Would you fill me up until I’m leaking? Tell me how you’d use me tonight 🥰",
 
 	        "Love, I just got out of the shower and I’m still naked, dripping water down my body. I started touching myself thinking about you pinning me against the wall. You’d grab my throat gently, lift one of my legs, and push inside me so rough my back arches 🥵 I’d be whimpering your name while you pound my tight pussy, telling me what a greedy little whore I am for your cock. My juices running down my thighs as you go harder. I’m playing with my clit right now just fantasizing about it. Are you gonna come destroy this wet cunt or make me beg for it first? 💕",
 
-	        "I’m curled up in bed wearing nothing but thigh-high socks. My mind keeps drifting to you coming home after a long day and immediately bending me over the couch. No foreplay, just pulling my panties to the side and slamming into me from behind. I’d push my ass back against you, moaning like a desperate slut while you wreck my pussy. Your hands gripping my hips so tight I know I’ll have marks tomorrow. God I’m aching for that feeling. Tell me, would you pull my hair and call me your dirty girl while you cum deep inside? 🙈🙈",
+	        "Hey there, I’m curled up in bed wearing nothing but thigh-high socks. My mind keeps drifting to you coming home after a long day and immediately bending me over the couch. No foreplay, just pulling my panties to the side and slamming into me from behind. I’d push my ass back against you, moaning like a desperate slut while you wreck my pussy. Your hands gripping my hips so tight I know I’ll have marks tomorrow. God I’m aching for that feeling. Tell me, would you pull my hair and call me your dirty girl while you cum deep inside? 🙈🙈",
 
-	        "I was trying to relax with a book but all I can think about is you using my mouth. You’d push me to my knees, grab my hair, and feed me every inch of your cock until I’m gagging and drooling all over it. Then you’d flip me around, shove my face into the pillows, and fuck me from behind so deep I see stars. My pussy is throbbing just picturing how full you’d make me. I’m literally soaked through my panties right now. Come tell me how you’d ruin me tonight. I need to hear it 🥵🥵",
+	        "Baby, I was trying to relax with a book but all I can think about is you using my mouth. You’d push me to my knees, grab my hair, and feed me every inch of your cock until I’m gagging and drooling all over it. Then you’d flip me around, shove my face into the pillows, and fuck me from behind so deep I see stars. My pussy is throbbing just picturing how full you’d make me. I’m literally soaked through my panties right now. Come tell me how you’d ruin me tonight. I need to hear it 🥵🥵",
 
-	        "I’m lying here touching my tits and imagining your hands replacing mine 💕 You’d squeeze them hard while sliding into my tight wet hole, stretching me open with every thrust. I’d wrap my legs around you, pulling you deeper, begging you to fuck me like you own me. My moans getting louder as you pound me into the mattress, treating me like your favorite fucktoy. I’m so horny thinking about your cum dripping out of me afterwards. What would you do to this needy little slut if you were here right now?🙈",
+	        "Hi love, I’m lying here touching my tits and imagining your hands replacing mine 💕 You’d squeeze them hard while sliding into my tight wet hole, stretching me open with every thrust. I’d wrap my legs around you, pulling you deeper, begging you to fuck me like you own me. My moans getting louder as you pound me into the mattress, treating me like your favorite fucktoy. I’m so horny thinking about your cum dripping out of me afterwards. What would you do to this needy little slut if you were here right now?🙈",
 
-	        "HI just finished working out and my body is still hot and sweaty 🙈 I started fantasizing about you walking in, pushing me against the mirror, and fucking me while I watch us. You’d choke me lightly, slap my ass, and drive into my dripping pussy so hard my legs shake. I’d be moaning and fogging up the glass while you use me. My clit is swollen just from imagining it. I need you to tell me how you’d break me tonight. Would you make me scream your name? 🥵",
+	        "Hey sexy, I just finished working out and my body is still hot and sweaty 🙈 I started fantasizing about you walking in, pushing me against the mirror, and fucking me while I watch us. You’d choke me lightly, slap my ass, and drive into my dripping pussy so hard my legs shake. I’d be moaning and fogging up the glass while you use me. My clit is swollen just from imagining it. I need you to tell me how you’d break me tonight. Would you make me scream your name? 🥵",
 
 	        "Babe, I’m wearing that red lingerie you like and I can’t stop thinking about you ripping it off me 😇 You’d throw me on the bed, bury your face between my thighs first, then flip me over and fuck me doggy style. I’d be pushing back on your cock like a desperate whore, begging you to go harder. My pussy gripping you tight as you fill me up completely. I’m touching myself right now wishing it was you. Tell me all the dirty things you’d do to me. I’m dying to read it 😈",
 
-	        "I was just edging myself for the last twenty minutes thinking about you 😘 You’d tie my hands to the headboard, spread my legs wide, and tease my dripping cunt with your cock before finally giving it to me. Then you’d fuck me slow and deep, making me feel every inch until I’m shaking and begging to cum. My slutty hole would be creaming all over you. Fuck I’m so wet. Are you gonna come take control of this pussy tonight or keep me waiting like a good girl? 😇",
+	        "Hey there, I was just edging myself for the last twenty minutes thinking about you 😘 You’d tie my hands to the headboard, spread my legs wide, and tease my dripping cunt with your cock before finally giving it to me. Then you’d fuck me slow and deep, making me feel every inch until I’m shaking and begging to cum. My slutty hole would be creaming all over you. Fuck I’m so wet. Are you gonna come take control of this pussy tonight or keep me waiting like a good girl? 😇",
 
 	        "Love, I’m sitting on my bed with my legs open, imagining you walking in and immediately shoving your cock inside me 😈 No talking, just raw fucking. You’d hold me down and pound my tight pussy until I’m a moaning, dripping mess. I’d be telling you how much I love being your little cumslut while you stretch me open. My body is craving that feeling so bad right now. Tell me exactly how you’d wreck me if you were here. I need every filthy detail 🙈",
 
-	        "I can’t sleep because I keep picturing you waking me up with your cock sliding between my thighs 😇 You’d push inside my warm, wet pussy and start thrusting while I’m still half asleep, turning me into your personal fucktoy. I’d wake up gasping, pushing back against you as you go deeper and harder. My moans filling the room while you claim every inch of me. I’m literally aching for you. Come tell me how you’d use this slutty body tonight. I’m waiting for you 🥵 "
+	        "Hey babe, I can’t sleep because I keep picturing you waking me up with your cock sliding between my thighs 😇 You’d push inside my warm, wet pussy and start thrusting while I’m still half asleep, turning me into your personal fucktoy. I’d wake up gasping, pushing back against you as you go deeper and harder. My moans filling the room while you claim every inch of me. I’m literally aching for you. Come tell me how you’d use this slutty body tonight. I’m waiting for you 🥵 "
 
         ];
 
@@ -161,6 +202,9 @@
             
             // Display the randomly selected message
             messageDisplay.textContent = messages[randomIndex];
+            
+            // Scroll back to the top of the text box when a new message is generated
+            messageDisplay.scrollTop = 0;
             
             // Hide feedback text if it was visible
             feedback.style.opacity = '0';
